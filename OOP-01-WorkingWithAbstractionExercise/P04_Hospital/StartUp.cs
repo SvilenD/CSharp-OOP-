@@ -4,7 +4,7 @@
     {
         public static void Main()
         {
-            var data = new DataManipulator();
+            var data = new Engine();
             data.Run();
         }
     }
