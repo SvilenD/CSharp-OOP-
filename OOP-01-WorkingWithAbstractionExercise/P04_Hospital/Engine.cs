@@ -3,13 +3,12 @@
     using System;
     using System.Linq;
 
-    internal class DataManipulator
+    public class Engine
     {
         public Hospital hospital = new Hospital(); 
+
         public void Run()
         {
-            var hospital = new Hospital();
-
             while (true)
             {
                 var command = Console.ReadLine().Split();
