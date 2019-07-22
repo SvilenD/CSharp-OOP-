@@ -15,7 +15,7 @@ namespace SoftUniRestaurant.Models.Tables
         private int capacity;
         private int numberOfPeople;
 
-        public Table(int tableNumber, int capacity, decimal pricePerPerson)
+        protected Table(int tableNumber, int capacity, decimal pricePerPerson)
         {
             this.foodOrders = new List<IFood>();
             this.drinkOrders = new List<IDrink>();
@@ -36,7 +36,7 @@ namespace SoftUniRestaurant.Models.Tables
             {
                 return this.capacity;
             }
-            set
+            private set
             {
                 if (value <= 0)
                 {
@@ -53,7 +53,7 @@ namespace SoftUniRestaurant.Models.Tables
             {
                 return this.numberOfPeople;
             }
-            set
+            private set
             {
                 if (value <= 0)
                 {
