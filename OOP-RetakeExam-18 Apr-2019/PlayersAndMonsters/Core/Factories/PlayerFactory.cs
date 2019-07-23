@@ -1,10 +1,9 @@
 ﻿namespace PlayersAndMonsters.Core.Factories
 {
+    using System;
     using PlayersAndMonsters.Core.Factories.Contracts;
-    using PlayersAndMonsters.Models.Players;
     using PlayersAndMonsters.Models.Players.Contracts;
     using PlayersAndMonsters.Repositories;
-    using System;
 
     public class PlayerFactory : IPlayerFactory
     {
