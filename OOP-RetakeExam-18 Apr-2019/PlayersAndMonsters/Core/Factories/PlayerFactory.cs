@@ -4,24 +4,17 @@
     using PlayersAndMonsters.Models.Players;
     using PlayersAndMonsters.Models.Players.Contracts;
     using PlayersAndMonsters.Repositories;
+    using System;
 
     public class PlayerFactory : IPlayerFactory
     {
         public IPlayer CreatePlayer(string type, string username)
         {
             var cardRepository = new CardRepository();
-            IPlayer player = null;
 
-            switch (type.ToLower())
-            {
-                case "beginner":
-                    player = new Beginner(cardRepository, username);
-                    break;
+            var playerType = Type.GetType($"PlayersAndMonsters.Models.Players.{type}");
 
-                case "advanced":
-                    player = new Advanced(cardRepository, username);
-                    break;
-            }
+            var player = (IPlayer)Activator.CreateInstance(playerType, new object [] { cardRepository, username });
 
             return player;
         }
