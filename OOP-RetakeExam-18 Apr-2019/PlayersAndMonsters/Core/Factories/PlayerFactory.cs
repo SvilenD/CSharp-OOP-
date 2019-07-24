@@ -1,6 +1,7 @@
 ﻿namespace PlayersAndMonsters.Core.Factories
 {
     using System;
+    using System.Linq;
     using PlayersAndMonsters.Core.Factories.Contracts;
     using PlayersAndMonsters.Models.Players.Contracts;
     using PlayersAndMonsters.Repositories;
