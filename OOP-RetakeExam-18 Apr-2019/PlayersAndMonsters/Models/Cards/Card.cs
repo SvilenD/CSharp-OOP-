@@ -16,6 +16,7 @@
             this.DamagePoints = damagePoints;
             this.HealthPoints = healthPoints;
         }
+
         public string Name
         {
             get
