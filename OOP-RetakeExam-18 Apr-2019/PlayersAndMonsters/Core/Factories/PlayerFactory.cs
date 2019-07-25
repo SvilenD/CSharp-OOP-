@@ -3,6 +3,7 @@
     using System;
     using System.Linq;
     using PlayersAndMonsters.Core.Factories.Contracts;
+    using PlayersAndMonsters.Models.Players;
     using PlayersAndMonsters.Models.Players.Contracts;
     using PlayersAndMonsters.Repositories;
 
@@ -12,9 +13,18 @@
         {
             var cardRepository = new CardRepository();
 
-            var playerType = Type.GetType($"PlayersAndMonsters.Models.Players.{type}");
+            IPlayer player = null;
 
-            var player = (IPlayer)Activator.CreateInstance(playerType, new object [] { cardRepository, username });
+            switch (type.ToLower())
+            {
+                case "beginner":
+                    player = new Beginner(cardRepository, username);
+                    break;
+
+                case "advanced":
+                    player = new Advanced(cardRepository, username);
+                    break;
+            }
 
             return player;
         }
