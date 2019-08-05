@@ -1,9 +1,9 @@
-﻿using MXGP.Models.Motorcycles.Contracts;
-using MXGP.Utilities.Messages;
-using System;
-
-namespace MXGP.Models.Motorcycles
+﻿namespace MXGP.Models.Motorcycles
 {
+    using System;
+    using MXGP.Models.Motorcycles.Contracts;
+    using MXGP.Utilities.Messages;
+
     public abstract class Motorcycle : IMotorcycle
     {
         private const int MIN_Model_Length = 4;
@@ -41,7 +41,7 @@ namespace MXGP.Models.Motorcycles
             {
                 return this.horsePower;
             }
-            private set
+            protected set // Should be PRIVATE SET, but acc. to softuni "smartheads" it's required to be protected. 
             {
                 CheckIfHorsePowerIsValid(value);
                 this.horsePower = value;

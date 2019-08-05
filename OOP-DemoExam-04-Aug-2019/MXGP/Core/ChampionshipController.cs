@@ -13,9 +13,9 @@
     public class ChampionshipController : IChampionshipController
     {
         private const int MIN_Race_Participants_Count = 3;
-        private MotorcycleRepository motorcycles;
-        private RiderRepository riders;
-        private RaceRepository races;
+        private readonly MotorcycleRepository motorcycles;
+        private readonly RiderRepository riders;
+        private readonly RaceRepository races;
 
         public ChampionshipController()
         {

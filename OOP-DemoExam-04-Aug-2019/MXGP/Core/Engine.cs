@@ -6,9 +6,9 @@
 
     public class Engine : IEngine
     {
-        private ChampionshipController controller;
-        private ConsoleReader reader;
-        private ConsoleWriter writer;
+        private readonly ChampionshipController controller;
+        private readonly ConsoleReader reader;
+        private readonly ConsoleWriter writer;
 
         public Engine()
         {
@@ -56,7 +56,7 @@
             }
             catch (Exception ex)
             {
-                writer.WriteLine(ex.Message);
+                writer.Write(ex.Message);
             }
             return null;
         }
