@@ -43,7 +43,7 @@
         {
             if (motorcycle == null)
             {
-                throw new ArgumentNullException(String.Format(ExceptionMessages.MotorcycleInvalid));
+                throw new ArgumentNullException(nameof(motorcycle), String.Format(ExceptionMessages.MotorcycleInvalid));
             }
 
             this.Motorcycle = motorcycle;
