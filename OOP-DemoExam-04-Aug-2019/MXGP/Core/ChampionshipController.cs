@@ -2,6 +2,7 @@
 {
     using System;
     using System.Linq;
+    using System.Text;
     using MXGP.Core.Contracts;
     using MXGP.Models.Motorcycles;
     using MXGP.Models.Motorcycles.Contracts;
@@ -13,9 +14,10 @@
     public class ChampionshipController : IChampionshipController
     {
         private const int MIN_Race_Participants_Count = 3;
-        private readonly MotorcycleRepository motorcycles;
-        private readonly RiderRepository riders;
-        private readonly RaceRepository races;
+
+        private MotorcycleRepository motorcycles;
+        private RiderRepository riders;
+        private RaceRepository races;
 
         public ChampionshipController()
         {
@@ -123,9 +125,12 @@
                 .Take(3)
                 .ToArray();
 
-            return String.Format(OutputMessages.RiderFirstPosition, topRiders[0].Name, raceName)
-                + Environment.NewLine + String.Format(OutputMessages.RiderSecondPosition, topRiders[1].Name, raceName)
-                + Environment.NewLine + String.Format(OutputMessages.RiderThirdPosition, topRiders[2].Name, raceName);
+            var result = new StringBuilder();
+            result.AppendLine(String.Format(OutputMessages.RiderFirstPosition, topRiders[0].Name, raceName));
+            result.AppendLine(String.Format(OutputMessages.RiderSecondPosition, topRiders[1].Name, raceName));
+            result.AppendLine(String.Format(OutputMessages.RiderThirdPosition, topRiders[2].Name, raceName));
+
+            return result.ToString().TrimEnd();
         }
     }
 }

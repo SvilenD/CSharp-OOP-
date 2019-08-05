@@ -41,7 +41,7 @@
             {
                 return this.horsePower;
             }
-            protected set // Should be PRIVATE SET, but acc. to softuni "smartheads" it's required to be protected. 
+            private set
             {
                 CheckIfHorsePowerIsValid(value);
                 this.horsePower = value;

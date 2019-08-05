@@ -6,9 +6,9 @@
 
     public class Engine : IEngine
     {
-        private readonly ChampionshipController controller;
-        private readonly ConsoleReader reader;
-        private readonly ConsoleWriter writer;
+        private ChampionshipController controller;
+        private ConsoleReader reader;
+        private ConsoleWriter writer;
 
         public Engine()
         {
