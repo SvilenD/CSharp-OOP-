@@ -1,11 +1,11 @@
 ﻿namespace MXGP.Models.Races
 {
-    using MXGP.Models.Races.Contracts;
-    using MXGP.Models.Riders.Contracts;
-    using MXGP.Utilities.Messages;
     using System;
     using System.Collections.Generic;
     using System.Linq;
+    using MXGP.Models.Races.Contracts;
+    using MXGP.Models.Riders.Contracts;
+    using MXGP.Utilities.Messages;
 
     public class Race : IRace
     {
