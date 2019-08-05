@@ -130,6 +130,7 @@
             result.AppendLine(String.Format(OutputMessages.RiderSecondPosition, topRiders[1].Name, raceName));
             result.AppendLine(String.Format(OutputMessages.RiderThirdPosition, topRiders[2].Name, raceName));
 
+            races.Remove(race);// 15-th test 
             return result.ToString().TrimEnd();
         }
     }

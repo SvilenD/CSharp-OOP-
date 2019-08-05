@@ -10,7 +10,7 @@
     public class Race : IRace
     {
         private const int MIN_Name_Length = 5;
-        private const int MIN_Laps = 2;
+        private const int MIN_Laps = 1;
 
         private string name;
         private int laps;
