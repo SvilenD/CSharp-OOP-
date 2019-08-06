@@ -5,27 +5,29 @@
     using System.Linq;
     using System.Collections.Generic;
     using Models;
-    using Models.Animals;
     using Models.Contracts;
     using Models.Procedures;
+    using Core.Contracts;
 
-    public class AnimalCentre
+    public class AnimalCentre : IAnimalCenter
     {
         private IHotel hotel;
         private Dictionary<string, IProcedure> history;
         private Dictionary<string, List<string>> ownersAnimals;
+        private AnimalFactory animalFactory;
 
         public AnimalCentre()
         {
             this.hotel = new Hotel();
             this.history = new Dictionary<string, IProcedure>();
             this.ownersAnimals = new Dictionary<string, List<string>>();
+            this.animalFactory = new AnimalFactory();
             this.InitializeServices();
         }
 
         public string RegisterAnimal(string type, string name, int energy, int happiness, int procedureTime)
         {
-            IAnimal animal = CreateAnimalOfType(type, name, energy, happiness, procedureTime);
+            IAnimal animal = animalFactory.CreateAnimal(type, name, energy, happiness, procedureTime);
 
             hotel.Accommodate(animal);
 
@@ -124,23 +126,6 @@
                 result.AppendLine(string.Join(" ", owner.Value));
             }
             return result.ToString().Trim();
-        }
-
-        private IAnimal CreateAnimalOfType(string type, string name, int energy, int happiness, int procedureTime)
-        {
-            switch (type)
-            {
-                case "Cat":
-                    return new Cat(name, energy, happiness, procedureTime);
-                case "Dog":
-                    return new Dog(name, energy, happiness, procedureTime);
-                case "Lion":
-                    return new Lion(name, energy, happiness, procedureTime);
-                case "Pig":
-                    return new Pig(name, energy, happiness, procedureTime);
-            }
-
-            return null;
         }
 
         private IAnimal GetAnimalIfExistsInTheHotel(string name)
