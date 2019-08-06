@@ -1,11 +1,11 @@
 ﻿namespace AnimalCentre.Models.Procedures
 {
-    using AnimalCentre.Core;
-    using AnimalCentre.Models.Contracts;
     using System;
     using System.Collections.Generic;
     using System.Linq;
     using System.Text;
+    using Core;
+    using Models.Contracts;
 
     public abstract class Procedure : IProcedure
     {

@@ -1,14 +1,14 @@
-﻿using AnimalCentre.Models;
-using AnimalCentre.Models.Animals;
-using AnimalCentre.Models.Contracts;
-using AnimalCentre.Models.Procedures;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace AnimalCentre.Core
+﻿namespace AnimalCentre.Core
 {
+    using System;
+    using System.Text;
+    using System.Linq;
+    using System.Collections.Generic;
+    using Models;
+    using Models.Animals;
+    using Models.Contracts;
+    using Models.Procedures;
+
     public class AnimalCentre
     {
         private IHotel hotel;
@@ -116,7 +116,7 @@ namespace AnimalCentre.Core
         public string AdobtedHistory()
         {
             var result = new StringBuilder();
-            foreach (var owner in this.ownersAnimals.OrderBy(o=>o.Key))
+            foreach (var owner in this.ownersAnimals.OrderBy(o => o.Key))
             {
                 result.AppendLine($"--Owner: {owner.Key}");
 
