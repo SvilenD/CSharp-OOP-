@@ -5,27 +5,28 @@
 
     public class Engine
     {
-        private AnimalCentre center;
+        private readonly CommandInterpreter command;
+
         public Engine()
         {
-            this.center = new AnimalCentre();
+            this.command = new CommandInterpreter();
         }
 
         public void Run()
         {
             while (true)
             {
-                var command = Console.ReadLine()
+                var input = Console.ReadLine()
                         .Split(' ', StringSplitOptions.RemoveEmptyEntries)
                         .ToArray();
-                if (command[0] == "End")
+                if (input[0] == "End")
                 {
                     break;
                 }
 
                 try
                 {
-                    Console.WriteLine(ExecuteCommand(command));
+                    Console.WriteLine(command.Execute(input));
                 }
                 catch (InvalidOperationException invalidOp)
                 {
@@ -40,34 +41,7 @@
                     Console.WriteLine(ex.Message);
                 }
             }
-            Console.WriteLine(center.AdobtedHistory());
-        }
-
-        private string ExecuteCommand(string[] input)
-        {
-            switch (input[0])
-            {
-                case "RegisterAnimal":
-                    return center.RegisterAnimal(input[1], input[2], int.Parse(input[3]), int.Parse(input[4]), int.Parse(input[5]));
-                case "Chip":
-                    return center.Chip(input[1], int.Parse(input[2]));
-                case "Adopt":
-                    return center.Adopt(input[1], input[2]);
-                case "DentalCare":
-                    return center.DentalCare(input[1], int.Parse(input[2]));
-                case "Fitness":
-                    return center.Fitness(input[1], int.Parse(input[2]));
-                case "History":
-                    return center.History(input[1]);
-                case "NailTrim":
-                    return center.NailTrim(input[1], int.Parse(input[2]));
-                case "Play":
-                    return center.Play(input[1], int.Parse(input[2]));
-                case "Vaccinate":
-                    return center.Vaccinate(input[1], int.Parse(input[2]));
-            }
-
-            return "Invalid command";
+            Console.WriteLine(command.GetHistory());
         }
     }
 }

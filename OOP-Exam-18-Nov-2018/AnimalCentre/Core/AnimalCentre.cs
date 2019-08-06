@@ -11,10 +11,10 @@
 
     public class AnimalCentre : IAnimalCenter
     {
-        private IHotel hotel;
-        private Dictionary<string, IProcedure> history;
-        private Dictionary<string, List<string>> ownersAnimals;
-        private AnimalFactory animalFactory;
+        private readonly IHotel hotel;
+        private readonly Dictionary<string, IProcedure> history;
+        private readonly Dictionary<string, List<string>> ownersAnimals;
+        private readonly AnimalFactory animalFactory;
 
         public AnimalCentre()
         {
