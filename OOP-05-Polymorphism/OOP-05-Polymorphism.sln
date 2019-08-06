@@ -1,0 +1,55 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29025.244
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "P01-MathOperation", "P01-MathOperation\P01-MathOperation.csproj", "{15A8882F-2CB0-46F4-A2EC-57254085E376}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "P02-Animals", "P02-Animals\P02-Animals.csproj", "{AD27EB16-A2F0-4656-B9EB-41CF439BB889}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "P03-Shapes", "P03-Shapes\P03-Shapes.csproj", "{AE8C4A3A-8701-4BFC-9D91-73440CDF3814}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "E01-Vehicles", "E01-Vehicles\E01-Vehicles.csproj", "{ADA5C541-87C6-41CF-9E09-8B1290DE96AE}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "E02-VehiclesExtension", "E02-VehiclesExtension\E02-VehiclesExtension.csproj", "{8C66E4EF-E8B1-4DE4-AC41-5C123DCBEB70}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "E03-WildFarm", "E03-WildFarm\E03-WildFarm.csproj", "{EDDC9201-1381-4C71-A6F5-9CC6B509752B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{15A8882F-2CB0-46F4-A2EC-57254085E376}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{15A8882F-2CB0-46F4-A2EC-57254085E376}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{15A8882F-2CB0-46F4-A2EC-57254085E376}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{15A8882F-2CB0-46F4-A2EC-57254085E376}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AD27EB16-A2F0-4656-B9EB-41CF439BB889}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AD27EB16-A2F0-4656-B9EB-41CF439BB889}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AD27EB16-A2F0-4656-B9EB-41CF439BB889}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AD27EB16-A2F0-4656-B9EB-41CF439BB889}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AE8C4A3A-8701-4BFC-9D91-73440CDF3814}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AE8C4A3A-8701-4BFC-9D91-73440CDF3814}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AE8C4A3A-8701-4BFC-9D91-73440CDF3814}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AE8C4A3A-8701-4BFC-9D91-73440CDF3814}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ADA5C541-87C6-41CF-9E09-8B1290DE96AE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ADA5C541-87C6-41CF-9E09-8B1290DE96AE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ADA5C541-87C6-41CF-9E09-8B1290DE96AE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ADA5C541-87C6-41CF-9E09-8B1290DE96AE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8C66E4EF-E8B1-4DE4-AC41-5C123DCBEB70}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8C66E4EF-E8B1-4DE4-AC41-5C123DCBEB70}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8C66E4EF-E8B1-4DE4-AC41-5C123DCBEB70}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8C66E4EF-E8B1-4DE4-AC41-5C123DCBEB70}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EDDC9201-1381-4C71-A6F5-9CC6B509752B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EDDC9201-1381-4C71-A6F5-9CC6B509752B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EDDC9201-1381-4C71-A6F5-9CC6B509752B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EDDC9201-1381-4C71-A6F5-9CC6B509752B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {628B98BF-802B-47D1-B38A-FC771445662A}
+	EndGlobalSection
+EndGlobal
