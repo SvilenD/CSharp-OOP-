@@ -24,6 +24,8 @@
 
         public const string NAIL_TRIM_ProcedureSuccessful = "{0} had nail trim procedure";
 
+        public const string ANIMAL_Name_AlreadyChipped = "{0} is already chipped";
+
         public const string ADOPTED_CHIPPED_Animal = "{0} adopted animal with chip";
 
         public const string ADOPTED_NOT_CHIPPED_Animal = "{0} adopted animal without chip";

@@ -2,6 +2,7 @@
 {
     using System;
     using System.Collections.Generic;
+    using AnimalCentre.Core;
     using AnimalCentre.Models.Contracts;
 
     public class Chip : Procedure
@@ -15,7 +16,7 @@
             if (animal.IsChipped)
             {
                 animal.ProcedureTime += procedureTime;
-                throw new ArgumentException($"{animal.Name} is already chipped");
+                throw new ArgumentException(String.Format(Messages.ANIMAL_Name_AlreadyChipped, animal.Name));
             }
 
             animal.IsChipped = true;
