@@ -21,16 +21,19 @@
             BonusPoints(attackPlayer);
             BonusPoints(enemyPlayer);
 
+            var attackPlayerDamage = attackPlayer.CardRepository.Cards.Sum(x => x.DamagePoints);
+            var enemyPlayerDamage = enemyPlayer.CardRepository.Cards.Sum(x => x.DamagePoints);
+
             while (attackPlayer.IsDead == false && enemyPlayer.IsDead == false)
             {
-                enemyPlayer.TakeDamage(attackPlayer.CardRepository.Cards.Sum(x => x.DamagePoints));
+                enemyPlayer.TakeDamage(attackPlayerDamage);
 
                 if (enemyPlayer.IsDead)
                 {
                     break;
                 }
 
-                attackPlayer.TakeDamage(enemyPlayer.CardRepository.Cards.Sum(x => x.DamagePoints));
+                attackPlayer.TakeDamage(enemyPlayerDamage);
             }
         }
 
