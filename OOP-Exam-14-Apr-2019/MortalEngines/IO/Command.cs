@@ -1,10 +1,7 @@
-﻿using MortalEngines.IO.Contracts;
-using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace MortalEngines.IO
+﻿namespace MortalEngines.IO
 {
+    using MortalEngines.IO.Contracts;
+
     public class Command : ICommand
     {
         public Command(string name, params string[] parameters)

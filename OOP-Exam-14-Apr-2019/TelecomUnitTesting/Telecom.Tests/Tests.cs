@@ -29,7 +29,7 @@ namespace Telecom.Tests
         public void Make_Throws_ArgumentException_If_MakeIsNullOrEmpty(string make)
         {
             Assert.Throws<ArgumentException>(() => new Phone(make, "bbb"))
-                .Message.Equals($"Invalid {nameof(phone.Make)}!");
+                .Message.Equals($"Invalid Make!");
         }
 
         [Test]
