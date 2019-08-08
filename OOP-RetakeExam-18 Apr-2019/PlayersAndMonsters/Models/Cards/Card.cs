@@ -25,10 +25,8 @@
             }
             private set
             {
-                if (String.IsNullOrEmpty(value))
-                {
-                    throw new ArgumentException(ExceptionMessages.CardNameNullOrEmpty);
-                }
+                Validator.ThrowsExceptionIfStringNullOrEmpty(value, ExceptionMessages.CardNameNullOrEmpty);
+
                 this.name = value;
             }
         }
@@ -41,10 +39,7 @@
             }
             set
             {
-                if (value < 0)
-                {
-                    throw new ArgumentException(ExceptionMessages.CardNegativeDamagePoints);
-                }
+                Validator.ThrowsExceptionIfNegativeValue(value, ExceptionMessages.CardNegativeDamagePoints);
 
                 this.damagePoints = value;
             }
@@ -58,10 +53,7 @@
             }
             private set
             {
-                if (value < 0)
-                {
-                    throw new ArgumentException(ExceptionMessages.CardNegativeHealth);
-                }
+                Validator.ThrowsExceptionIfNegativeValue(value, ExceptionMessages.CardNegativeHealth);
 
                 this.healthPoints = value;
             }
