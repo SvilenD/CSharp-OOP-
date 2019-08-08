@@ -1,21 +1,22 @@
 ﻿namespace PlayersAndMonsters.Core.Factories
 {
+    using PlayersAndMonsters.Core.Factories.Contracts;
+    using PlayersAndMonsters.Models.Cards;
+    using PlayersAndMonsters.Models.Cards.Contracts;
     using System;
     using System.Linq;
-    using System.Reflection;
-    using PlayersAndMonsters.Core.Factories.Contracts;
-    using PlayersAndMonsters.Models.Cards.Contracts;
 
     public class CardFactory : ICardFactory
     {
         public ICard CreateCard(string type, string name)
         {
-            var assembly = Assembly.GetCallingAssembly();
+            var cardType = typeof(CardFactory)
+                .Assembly
+                .GetTypes()
+                .FirstOrDefault(x => x.Name.StartsWith(type) && x.Name.EndsWith("Card")); 
 
-            var typeToCreate = assembly.GetTypes()
-                .FirstOrDefault(t => t.Name.StartsWith(type));
+            var card = (Card)Activator.CreateInstance(cardType, name );
 
-            ICard card = (ICard)Activator.CreateInstance(typeToCreate, name);
             return card;
         }
     }

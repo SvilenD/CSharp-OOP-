@@ -27,31 +27,35 @@
                 {
                     break;
                 }
-                try
+
+                var result = ExecuteCommand(input);
+                writer.WriteLine(result);
+            }
+        }
+
+        private string ExecuteCommand(string[] input)
+        {
+            try
+            {
+                switch (input[0])
                 {
-                    switch (input[0])
-                    {
-                        case "AddPlayer":
-                            writer.WriteLine(managerController.AddPlayer(input[1], input[2]));
-                            break;
-                        case "AddCard":
-                            writer.WriteLine(managerController.AddCard(input[1], input[2]));
-                            break;
-                        case "AddPlayerCard":
-                            writer.WriteLine(managerController.AddPlayerCard(input[1], input[2]));
-                            break;
-                        case "Fight":
-                            writer.WriteLine(managerController.Fight(input[1], input[2]));
-                            break;
-                        case "Report":
-                            writer.WriteLine(managerController.Report());
-                            break;
-                    }
+                    case "AddPlayer":
+                        return managerController.AddPlayer(input[1], input[2]);
+                    case "AddCard":
+                        return managerController.AddCard(input[1], input[2]);
+                    case "AddPlayerCard":
+                        return managerController.AddPlayerCard(input[1], input[2]);
+                    case "Fight":
+                        return managerController.Fight(input[1], input[2]);
+                    case "Report":
+                        return managerController.Report();
+                    default:
+                        return "Invalid command!";
                 }
-                catch (Exception ex)
-                {
-                    writer.WriteLine(ex.Message);
-                }
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
             }
         }
     }
