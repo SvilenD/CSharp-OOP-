@@ -27,10 +27,7 @@
             }
             private set
             {
-                if (string.IsNullOrEmpty(value))
-                {
-                    throw new ArgumentException(ExceptionMessages.UsernameNullOrEmpty);
-                }
+                Validator.ThrowsExceptionIfStringNullOrEmpty(value, ExceptionMessages.UsernameNullOrEmpty);
 
                 this.username = value;
             }
@@ -44,10 +41,8 @@
             }
             set
             {
-                if (value < 0)
-                {
-                    throw new ArgumentException(ExceptionMessages.NegativeHealth);
-                }
+                Validator.ThrowsExceptionIfNegativeValue(value, ExceptionMessages.NegativeHealth);
+                
                 this.health = value;
             }
         }
@@ -56,11 +51,8 @@
 
         public void TakeDamage(int damagePoints)
         {
-            if (damagePoints < 0)
-            {
-                throw new ArgumentException(ExceptionMessages.NegativeDamagePoints);
-            }
-
+            Validator.ThrowsExceptionIfNegativeValue(damagePoints, ExceptionMessages.NegativeDamagePoints);
+            
             this.Health = Math.Max(0, this.Health - damagePoints);
         }
     }
