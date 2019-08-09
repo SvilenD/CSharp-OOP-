@@ -4,17 +4,18 @@
     using System.Collections.Generic;
     using System.Linq;
     using System.Text;
-
-    using Models.Drinks;
     using Models.Drinks.Contracts;
-    using Models.Foods;
     using Models.Foods.Contracts;
     using Models.Tables.Contracts;
-    using Models.Tables.Models;
+    using SoftUniRestaurant.Common;
     using SoftUniRestaurant.Core.Contracts;
+    using SoftUniRestaurant.Core.Factories;
 
     public class RestaurantController : IRestaurantController
     {
+        private readonly FoodFactory foodFactory;
+        private readonly DrinkFactory drinkFactory;
+        private readonly TableFactory tableFactory;
         private readonly List<IFood> menu;
         private readonly List<IDrink> drinks;
         private readonly List<ITable> tables;
@@ -22,6 +23,9 @@
 
         public RestaurantController()
         {
+            this.foodFactory = new FoodFactory();
+            this.drinkFactory = new DrinkFactory();
+            this.tableFactory = new TableFactory();
             this.menu = new List<IFood>();
             this.drinks = new List<IDrink>();
             this.tables = new List<ITable>();
@@ -30,27 +34,7 @@
 
         public string AddFood(string type, string name, decimal price)
         {
-            IFood food = null;
-            switch (type.ToLower())
-            {
-                case "dessert":
-                    food = new Dessert(name, price);
-                    break;
-                case "maincourse":
-                    food = new MainCourse(name, price);
-                    break;
-                case "salad":
-                    food = new Salad(name, price);
-                    break;
-                case "soup":
-                    food = new Soup(name, price);
-                    break;
-            }
-
-            if (food == null)
-            {
-                return String.Empty;
-            }
+            var food = foodFactory.CreateFood(type, name, price);
 
             this.menu.Add(food);
             return String.Format(OutputMessages.ADD_Food, food.Name, food.GetType().Name, food.Price);
@@ -58,27 +42,7 @@
 
         public string AddDrink(string type, string name, int servingSize, string brand)
         {
-            IDrink drink = null;
-            switch (type.ToLower())
-            {
-                case "alcohol":
-                    drink = new Alcohol(name, servingSize, brand);
-                    break;
-                case "fuzzydrink":
-                    drink = new FuzzyDrink(name, servingSize, brand);
-                    break;
-                case "juice":
-                    drink = new Juice(name, servingSize, brand);
-                    break;
-                case "water":
-                    drink = new Water(name, servingSize, brand);
-                    break;
-            }
-
-            if (drink == null)
-            {
-                return string.Empty;
-            }
+            var drink = this.drinkFactory.CreateDrink(type, name, servingSize, brand);
 
             this.drinks.Add(drink);
             return String.Format(OutputMessages.ADD_Drink, drink.Name, drink.Brand);
@@ -86,16 +50,8 @@
 
         public string AddTable(string type, int tableNumber, int capacity)
         {
-            ITable table = null;
-            if (type.ToLower() == "inside")
-            {
-                table = new InsideTable(tableNumber, capacity);
-            }
-            else if (type.ToLower() == "outside")
-            {
-                table = new OutsideTable(tableNumber, capacity);
-            }
-
+            var table = this.tableFactory.CreateTable(type, tableNumber, capacity);
+           
             tables.Add(table);
 
             return string.Format(OutputMessages.ADD_Table, tableNumber, capacity);
@@ -152,7 +108,7 @@
 
         public string LeaveTable(int tableNumber)
         {
-            var table = this.tables.FirstOrDefault(t => t.TableNumber == tableNumber);
+            var table = this.FindTable(tableNumber);
 
             if (table == null)
             {
