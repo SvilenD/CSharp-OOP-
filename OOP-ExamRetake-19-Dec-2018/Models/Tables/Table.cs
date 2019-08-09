@@ -7,6 +7,7 @@ namespace SoftUniRestaurant.Models.Tables
     using SoftUniRestaurant.Models.Foods.Contracts;
     using SoftUniRestaurant.Models.Tables.Contracts;
     using System.Text;
+    using SoftUniRestaurant.Common;
 
     public abstract class Table : ITable
     {
@@ -24,9 +25,9 @@ namespace SoftUniRestaurant.Models.Tables
             this.PricePerPerson = pricePerPerson;
         }
 
-        public IReadOnlyCollection<IFood> FoodOrders => this.foodOrders.AsReadOnly();
+        //public IReadOnlyCollection<IFood> FoodOrders => this.foodOrders.AsReadOnly();
 
-        public IReadOnlyCollection<IDrink> DrinkOrders => this.drinkOrders.AsReadOnly();
+        //public IReadOnlyCollection<IDrink> DrinkOrders => this.drinkOrders.AsReadOnly();
 
         public int TableNumber { get; }
 
@@ -116,8 +117,8 @@ namespace SoftUniRestaurant.Models.Tables
             var info = new StringBuilder();
             info.AppendLine(BaseTableInfo());
             info.AppendLine($"Number of people: {this.NumberOfPeople}");
-            info.AppendLine($"Food {GetOrders(this.FoodOrders)}");
-            info.AppendLine($"Drink {GetOrders(this.DrinkOrders)}");
+            info.AppendLine($"Food {GetOrders(this.foodOrders)}");
+            info.AppendLine($"Drink {GetOrders(this.drinkOrders)}");
 
             return info.ToString().TrimEnd();
         }

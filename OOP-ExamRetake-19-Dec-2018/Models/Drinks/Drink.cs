@@ -1,6 +1,7 @@
 ﻿namespace SoftUniRestaurant.Models.Drinks
 {
     using System;
+    using SoftUniRestaurant.Common;
     using SoftUniRestaurant.Models.Drinks.Contracts;
 
     public abstract class Drink : IDrink

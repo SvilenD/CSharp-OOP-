@@ -1,5 +1,6 @@
 ﻿namespace SoftUniRestaurant.Models.Foods
 {
+    using SoftUniRestaurant.Common;
     using SoftUniRestaurant.Models.Foods.Contracts;
     using System;
 
