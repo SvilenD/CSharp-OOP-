@@ -1,7 +1,7 @@
 ﻿namespace MXGP.Repositories
 {
-    using System.Collections.Generic;
     using MXGP.Repositories.Contracts;
+    using System.Collections.Generic;
 
     public abstract class Repository<T> : IRepository<T>
     {

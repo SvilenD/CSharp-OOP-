@@ -1,7 +1,5 @@
 ﻿namespace MXGP
 {
-    using System;
-    using Models.Motorcycles;
     using MXGP.Core;
 
     public class StartUp

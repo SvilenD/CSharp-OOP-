@@ -1,6 +1,6 @@
 ﻿namespace MXGP.Core.Contracts
 {
-    public interface IEngine // class IEngine in provided Skeleton
+    public interface IEngine
     {
         void Run();
     }

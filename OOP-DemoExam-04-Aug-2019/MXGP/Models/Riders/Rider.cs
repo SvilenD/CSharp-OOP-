@@ -1,9 +1,10 @@
 ﻿namespace MXGP.Models.Riders
 {
     using System;
-    using MXGP.Models.Motorcycles.Contracts;
     using MXGP.Models.Riders.Contracts;
+    using MXGP.Models.Motorcycles.Contracts;
     using MXGP.Utilities.Messages;
+    using MXGP.Utilities;
 
     public class Rider : IRider
     {
@@ -13,7 +14,6 @@
         public Rider(string name)
         {
             this.Name = name;
-            this.NumberOfWins = 0;
         }
 
         public string Name
@@ -24,10 +24,7 @@
             }
             private set
             {
-                if (String.IsNullOrWhiteSpace(value) || value.Length < MIN_Name_Length)
-                {
-                    throw new ArgumentException(String.Format(ExceptionMessages.InvalidName, value, MIN_Name_Length));
-                }
+                Validator.ValidateString(value, MIN_Name_Length, ExceptionMessages.InvalidName);
 
                 this.name = value;
             }
@@ -43,7 +40,7 @@
         {
             if (motorcycle == null)
             {
-                throw new ArgumentNullException(nameof(motorcycle), String.Format(ExceptionMessages.MotorcycleInvalid));
+                throw new ArgumentNullException(ExceptionMessages.MotorcycleInvalid);
             }
 
             this.Motorcycle = motorcycle;

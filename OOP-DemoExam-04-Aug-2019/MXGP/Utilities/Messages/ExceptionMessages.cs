@@ -18,10 +18,10 @@
                
         public const string RiderNotParticipate = "Rider {0} could not participate in race.";
             
-        public const string RiderInvalid = "Rider cannot be null."; // originally "Race cannot be null.", changed according to text file.
-
-        public const string MotorcycleExists = "Motorcycle {0} is already created."; //"Motorcycle {0} is already create."
-
+        public const string RiderInvalid = "Rider cannot be null.";
+           
+        public const string MotorcycleExists = "Motorcycle {0} is already created.";
+       
         public const string MotorcycleInvalid = "Motorcycle cannot be null.";
      
         public const string MotorcycleNotFound = "Motorcycle {0} could not be found.";

@@ -5,18 +5,19 @@
     using System.Linq;
     using MXGP.Models.Races.Contracts;
     using MXGP.Models.Riders.Contracts;
+    using MXGP.Utilities;
     using MXGP.Utilities.Messages;
 
     public class Race : IRace
     {
         private const int MIN_Name_Length = 5;
         private const int MIN_Laps = 1;
-
         private string name;
         private int laps;
         private readonly List<IRider> riders;
 
-        public Race(string name, int laps)
+
+        public Race(string name,int laps)
         {
             this.Name = name;
             this.Laps = laps;
@@ -31,10 +32,7 @@
             }
             private set
             {
-                if (String.IsNullOrWhiteSpace(value) || value.Length < MIN_Name_Length)
-                {
-                    throw new ArgumentException(String.Format(ExceptionMessages.InvalidName, value, MIN_Name_Length));
-                }
+                Validator.ValidateString(value, MIN_Name_Length, ExceptionMessages.InvalidName);
 
                 this.name = value;
             }
@@ -63,15 +61,15 @@
         {
             if (rider == null)
             {
-                throw new ArgumentNullException(nameof(rider), (String.Format(ExceptionMessages.RiderInvalid)));
+                throw new ArgumentNullException(ExceptionMessages.RiderInvalid);
             }
             else if (rider.CanParticipate == false)
             {
                 throw new ArgumentException(String.Format(ExceptionMessages.RiderNotParticipate, rider.Name));
             }
-            else if (this.riders.Any(r => r.Name == rider.Name))
+            else if (this.riders.Any(r=>r.Name == rider.Name))
             {
-                throw new ArgumentNullException(nameof(rider), String.Format(ExceptionMessages.RiderAlreadyAdded, rider.Name, this.Name));
+                throw new ArgumentNullException(String.Format(ExceptionMessages.RiderAlreadyAdded, rider.Name, this.Name));
             }
 
             this.riders.Add(rider);

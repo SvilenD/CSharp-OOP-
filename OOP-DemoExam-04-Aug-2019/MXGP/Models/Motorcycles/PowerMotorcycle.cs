@@ -5,18 +5,18 @@
 
     public class PowerMotorcycle : Motorcycle
     {
-        private const int MIN_HP = 70;
-        private const int MAX_HP = 100;
-        private const double DEFAULT_CubicCentimeters = 450;
+        private const double Initial_CubicCentimeters = 450;
+        private const int Min_HP = 70;
+        private const int Max_HP = 100;
 
         public PowerMotorcycle(string model, int horsePower)
-            : base(model, horsePower, DEFAULT_CubicCentimeters)
+            : base(model, horsePower, Initial_CubicCentimeters)
         {
         }
 
-        protected override void CheckIfHorsePowerIsValid(int value)
+        protected sealed override void ValidateHP(int value)
         {
-            if (value < MIN_HP || value > MAX_HP)
+            if (value < Min_HP || value > Max_HP)
             {
                 throw new ArgumentException(String.Format(ExceptionMessages.InvalidHorsePower, value));
             }

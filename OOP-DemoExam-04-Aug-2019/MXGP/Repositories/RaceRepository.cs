@@ -13,7 +13,7 @@
 
         public override IRace GetByName(string name)
         {
-            return this.models.FirstOrDefault(m => m.Name == name);
+            return this.models.FirstOrDefault(r => r.Name == name);
         }
     }
 }
