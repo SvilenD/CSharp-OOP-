@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace SoftUniRestaurant
+﻿namespace SoftUniRestaurant.Common
 {
     public class OutputMessages
     {
@@ -27,5 +25,7 @@ namespace SoftUniRestaurant
         public const string LEAVE_Table = "Table: {0}{1}Bill: {2:f2}";
 
         public const string TOTAL_Income = "Total income: {0:f2}lv";
+
+        public const string INVALID_Command = "Invalid command";
     }
 }
