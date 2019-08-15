@@ -5,8 +5,6 @@
 
     public class StartUp
     {
-        public IEngine engine;
-
         static void Main(string[] args)
         {
             IEngine engine = new Engine();
