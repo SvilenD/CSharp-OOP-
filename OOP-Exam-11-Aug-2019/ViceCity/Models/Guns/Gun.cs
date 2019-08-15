@@ -24,7 +24,7 @@
             }
             private set
             {
-                Validator.ValidateName(value, ExceptionMessages.GUN_NameInvalid);
+                Validator.ValidateName(value, ExceptionMessages.GunNameInvalid);
 
                 this.name = value;
             }
@@ -38,7 +38,7 @@
             }
             protected set
             {
-                Validator.ValidateNumber(value, ExceptionMessages.GUN_BulletsNegative);
+                Validator.ValidateNumber(value, ExceptionMessages.GunBulletsNegative);
 
                 this.bulletsPerBarrel = value;
             }
@@ -52,7 +52,7 @@
             }
             protected set
             {
-                Validator.ValidateNumber(value, ExceptionMessages.GUN_TotalBulletsNegative);
+                Validator.ValidateNumber(value, ExceptionMessages.GunTotalBulletsNegative);
 
                 this.totalBullets = value;
             }
