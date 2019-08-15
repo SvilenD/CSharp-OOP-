@@ -1,9 +1,9 @@
 ﻿namespace ViceCity.Core
 {
-    using ViceCity.Core.Contracts;
     using System;
-    using ViceCity.IO.Contracts;
     using ViceCity.IO;
+    using ViceCity.IO.Contracts;
+    using ViceCity.Core.Contracts;
 
     public class Engine : IEngine
     {
