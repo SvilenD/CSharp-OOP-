@@ -32,46 +32,49 @@
             {
                 this.guns.Add(new Rifle(name));
                 
-                return String.Format(OutputMessages.GUN_Added, name, type);
+                return String.Format(OutputMessages.GunAdded, name, type);
             }
             else if (type == "Pistol")
             {
                 this.guns.Add(new Pistol(name));
 
-                return String.Format(OutputMessages.GUN_Added, name, type);
+                return String.Format(OutputMessages.GunAdded, name, type);
             }
 
-            return "Invalid gun type!";
+            return OutputMessages.GunInvalidType;
         }
 
         public string AddGunToPlayer(string name)
         {
             var gun = this.guns.Models.FirstOrDefault();
+
             if (gun == null)
             {
-                return "There are no guns in the queue!";
+                return OutputMessages.NoGuns;
             }
-            else if (name == "Vercetti")
+            else if (name == OutputMessages.MainPlayerName)
             {
                 this.mainPlayer.GunRepository.Add(gun);
-                return $"Successfully added {gun.Name} to the Main Player: Tommy Vercetti";
+                this.guns.Remove(gun);
+                return String.Format(OutputMessages.MainPlayerAddedGun, gun.Name);
             }
 
             var currentPlayer = this.civilPlayers.FirstOrDefault(p => p.Name == name);
             if (currentPlayer == null)
             {
-                return "Civil player with that name doesn't exists!";
+                return OutputMessages.PlayerNotExists;
             }
 
             currentPlayer.GunRepository.Add(gun);
-            return $"Successfully added {gun.Name} to the Civil Player: {currentPlayer.Name}";
+            this.guns.Remove(gun);
+            return String.Format(OutputMessages.PlayerAddedGun , gun.Name, currentPlayer.Name); 
         }
 
         public string AddPlayer(string name)
         {
             this.civilPlayers.Add(new CivilPlayer(name));
 
-            return $"Successfully added civil player: {name}!";
+            return String.Format(OutputMessages.CivilPlayerAdded, name);
         }
 
         public string Fight()
@@ -84,15 +87,15 @@
 
             if (mainPlayer.LifePoints == mainHealth && civilsTotalHeatlh == this.civilPlayers.Sum(p => p.LifePoints))
             {
-                return "Everything is okay!";
+                return OutputMessages.AllOk;
             }
 
             var civilsKilled = civilsCount - this.civilPlayers.Count();
             var result = new StringBuilder();
-            result.AppendLine("A fight happened:");
-            result.AppendLine($"Tommy live points: {mainPlayer.LifePoints}!");
-            result.AppendLine($"Tommy has killed: {civilsKilled} players!");
-            result.AppendLine($"Left Civil Players: {this.civilPlayers.Count()}!");
+            result.AppendLine(OutputMessages.Fight);
+            result.AppendLine(String.Format(OutputMessages.LifePoints, mainPlayer.LifePoints));
+            result.AppendLine(String.Format(OutputMessages.Killed, civilsKilled)); 
+            result.AppendLine(String.Format(OutputMessages.CivilsLeft, this.civilPlayers.Count())); 
 
             return result.ToString().TrimEnd();
         }
