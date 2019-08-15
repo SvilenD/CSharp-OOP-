@@ -17,10 +17,10 @@
                 while (currentPlayer.IsAlive)
                 {
                     int lifePointsTaken = gun.Fire();
+
                     if (gun.TotalBullets <= 0)
                     {
                         mainPlayer.GunRepository.Remove(gun);
-                        gun = mainPlayer.GunRepository.Models.First(g => g.CanFire);
                     }
 
                     currentPlayer.TakeLifePoints(lifePointsTaken);
