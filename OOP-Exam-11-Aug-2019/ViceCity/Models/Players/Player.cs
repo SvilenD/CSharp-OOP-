@@ -26,7 +26,7 @@
             }
             private set
             {
-                Validator.ValidateName(value, ExceptionMessages.PLAYER_NameInvalid);
+                Validator.ValidateName(value, ExceptionMessages.PlayerNameInvalid);
 
                 this.name = value;
             }
@@ -40,7 +40,7 @@
             }
             private set
             {
-                Validator.ValidateNumber(value, ExceptionMessages.PLAYER_LifePointsNegative);
+                Validator.ValidateNumber(value, ExceptionMessages.PlayerLifePointsNegative);
 
                 this.lifePoints = value;
             }
