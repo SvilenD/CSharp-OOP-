@@ -19,7 +19,7 @@
             }
             this.TotalBullets -= Bullets_PerShot;
 
-            return 5;
+            return Bullets_PerShot;
         }
     }
 }

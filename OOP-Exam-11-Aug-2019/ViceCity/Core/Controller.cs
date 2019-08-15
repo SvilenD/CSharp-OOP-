@@ -1,5 +1,6 @@
 ﻿namespace ViceCity.Core
 {
+    using System;
     using System.Text;
     using System.Linq;
     using System.Collections.Generic;
@@ -30,12 +31,14 @@
             if (type == "Rifle")
             {
                 this.guns.Add(new Rifle(name));
-                return $"Successfully added {name} of type: {type}";
+                
+                return String.Format(OutputMessages.GUN_Added, name, type);
             }
             else if (type == "Pistol")
             {
                 this.guns.Add(new Pistol(name));
-                return $"Successfully added {name} of type: {type}";
+
+                return String.Format(OutputMessages.GUN_Added, name, type);
             }
 
             return "Invalid gun type!";
@@ -49,7 +52,7 @@
                 return "There are no guns in the queue!";
             }
             else if (name == "Vercetti")
-            { 
+            {
                 this.mainPlayer.GunRepository.Add(gun);
                 return $"Successfully added {gun.Name} to the Main Player: Tommy Vercetti";
             }
@@ -79,7 +82,7 @@
 
             this.neighbourhood.Action(this.mainPlayer, this.civilPlayers);
 
-            if (mainPlayer.LifePoints == mainHealth && civilsTotalHeatlh == this.civilPlayers.Sum(p=>p.LifePoints))
+            if (mainPlayer.LifePoints == mainHealth && civilsTotalHeatlh == this.civilPlayers.Sum(p => p.LifePoints))
             {
                 return "Everything is okay!";
             }

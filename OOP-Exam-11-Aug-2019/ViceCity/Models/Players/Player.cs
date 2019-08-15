@@ -1,6 +1,5 @@
 ﻿namespace ViceCity.Models.Players
 {
-    using System;
     using ViceCity.Core;
     using ViceCity.Models.Guns.Contracts;
     using ViceCity.Models.Players.Contracts;
@@ -27,7 +26,7 @@
             }
             private set
             {
-                Validator.ValidateName(value ,ExceptionMessages.PLAYER_NameInvalid);
+                Validator.ValidateName(value, ExceptionMessages.PLAYER_NameInvalid);
 
                 this.name = value;
             }
@@ -39,12 +38,9 @@
             {
                 return this.lifePoints;
             }
-            private set 
+            private set
             {
-                if (value < 0)
-                {
-                    throw new ArgumentException(ExceptionMessages.PLAYER_LifePointsNegative);
-                }
+                Validator.ValidateNumber(value, ExceptionMessages.PLAYER_LifePointsNegative);
 
                 this.lifePoints = value;
             }
@@ -60,8 +56,10 @@
             {
                 this.LifePoints = 0;
             }
-
-            this.LifePoints -= points;
+            else
+            {
+                this.LifePoints -= points;
+            }
         }
     }
 }

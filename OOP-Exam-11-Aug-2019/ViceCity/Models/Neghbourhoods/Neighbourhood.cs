@@ -1,7 +1,7 @@
 ﻿namespace ViceCity.Models.Neghbourhoods
 {
-    using System.Collections.Generic;
     using System.Linq;
+    using System.Collections.Generic;
     using ViceCity.Models.Neghbourhoods.Contracts;
     using ViceCity.Models.Players.Contracts;
 

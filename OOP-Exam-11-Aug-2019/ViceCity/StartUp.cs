@@ -1,12 +1,12 @@
-﻿using ViceCity.Core;
-using ViceCity.Core.Contracts;
-using System;
-
-namespace ViceCity
+﻿namespace ViceCity
 {
+    using ViceCity.Core;
+    using ViceCity.Core.Contracts;
+
     public class StartUp
     {
-        IEngine engine;
+        public IEngine engine;
+
         static void Main(string[] args)
         {
             IEngine engine = new Engine();
