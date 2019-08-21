@@ -1,4 +1,5 @@
 using NUnit.Framework;
+using Service.Models.Parts;
 using System;
 
 namespace Tests

@@ -1,4 +1,6 @@
 ﻿using NUnit.Framework;
+using Service.Models.Devices;
+using Service.Models.Parts;
 using System;
 using System.Collections.Generic;
 
@@ -79,20 +81,27 @@ namespace Service.Tests
 
                     Assert.Throws<InvalidOperationException>(() => laptop.AddPart(phonePart))
                     .Message.Equals($"You cannot add {phonePart.GetType().Name} to {this.GetType().Name}!");
+
                     Assert.Throws<InvalidOperationException>(() => laptop.AddPart(pcPart))
                          .Message.Equals($"You cannot add {pcPart.GetType().Name} to {this.GetType().Name}!");
                     break;
+
                 case "PC":
                     var pc = new PC("make");
+
                     Assert.Throws<InvalidOperationException>(() => pc.AddPart(laptopPart))
                     .Message.Equals($"You cannot add {laptopPart.GetType().Name} to {this.GetType().Name}!");
+
                     Assert.Throws<InvalidOperationException>(() => pc.AddPart(phonePart))
                          .Message.Equals($"You cannot add {phonePart.GetType().Name} to {this.GetType().Name}!");
                     break;
+
                 case "Phone":
                     var phone = new Phone("make");
+
                     Assert.Throws<InvalidOperationException>(() => phone.AddPart(pcPart))
                     .Message.Equals($"You cannot add {pcPart.GetType().Name} to {this.GetType().Name}!");
+
                     Assert.Throws<InvalidOperationException>(() => phone.AddPart(laptopPart))
                          .Message.Equals($"You cannot add {laptopPart.GetType().Name} to {this.GetType().Name}!");
                     break;
