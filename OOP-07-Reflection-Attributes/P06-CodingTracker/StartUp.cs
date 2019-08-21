@@ -1,11 +1,8 @@
-﻿using System;
-
-
-[Author("Ventsi")]
-class StartUp
+﻿[Author("Ventsi")]
+public class StartUp
 {
     [Author("Gosho")]
-    static void Main()
+    public static void Main()
     {
         var tracker = new Tracker();
         tracker.PrintMethodsByAuthor();

@@ -5,13 +5,12 @@ using System.Reflection;
 [Author("Svilen")]
 public class Tracker
 {
+    [Author("Svilen")]
     public void PrintMethodsByAuthor()
     {
         var assembly = Assembly.GetExecutingAssembly();
-
-        var methods = assembly
-            .GetTypes()
-            .SelectMany(x => x.GetMethods(BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.Static));
+        var classes = assembly.GetTypes();
+        var methods = classes.SelectMany(c => c.GetMethods(BindingFlags.Public | BindingFlags.Static | BindingFlags.Instance | BindingFlags.NonPublic));
 
         foreach (var method in methods)
         {
@@ -20,7 +19,6 @@ public class Tracker
                 foreach (AuthorAttribute attribute in method.GetCustomAttributes())
                 {
                     Console.WriteLine($"{method.Name} is writen by {attribute.Name}" );
-
                 }
             }
         }
