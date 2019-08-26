@@ -6,11 +6,11 @@
     public class RetireCommand : Command
     {
         private const string RetiredSuccessfully = "{0} retired!";
-
+        [Inject]
         private readonly IRepository repository;
 
-        public RetireCommand(string[] data/*, IRepository repository, IUnitFactory unitFactory*/)
-            : base(data/*, repository, unitFactory*/)
+        public RetireCommand(string[] data)
+            : base(data)
         {
         }
 

@@ -4,18 +4,12 @@
 
     public abstract class Command : IExecutable
     {
-        protected Command(string[] data)//, IRepository repository, IUnitFactory unitFactory)
+        protected Command(string[] data)
         {
             this.Data = data;
-            //this.UnitFactory = unitFactory;
-            //this.Repository = repository;
         }
 
         protected string[] Data { get; private set; }
-
-        //protected IUnitFactory UnitFactory { get; private set; }
-
-        //protected IRepository Repository { get; private set; }
 
         public abstract string Execute();
     }

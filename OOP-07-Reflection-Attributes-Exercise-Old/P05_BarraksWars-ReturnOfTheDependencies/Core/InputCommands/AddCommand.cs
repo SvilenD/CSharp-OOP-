@@ -4,11 +4,13 @@
 
     public class AddCommand : Command
     {
+        [Inject]
         private readonly IRepository repository;
+        [Inject]
         private readonly IUnitFactory unitFactory;
 
-        public AddCommand(string[] data/*, IRepository repository, IUnitFactory unitFactory*/) 
-            : base(data/*, repository, unitFactory*/)
+        public AddCommand(string[] data) 
+            : base(data)
         {
         }
 

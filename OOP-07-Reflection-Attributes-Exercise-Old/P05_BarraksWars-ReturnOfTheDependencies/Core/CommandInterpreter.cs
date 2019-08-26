@@ -8,14 +8,13 @@
     public class CommandInterpreter : ICommandInterpreter
     {
         private const string CommandNameSuffix = "command";
-        //private readonly IRepository repository;
-        //private readonly IUnitFactory unitFactory;
 
-        //public CommandInterpreter(IRepository repository, IUnitFactory unitFactory)
-        //{
-        //    this.repository = repository;
-        //    this.unitFactory = unitFactory;
-        //}
+        private readonly IServiceProvider serviceProvider;
+
+        public CommandInterpreter(IServiceProvider serviceProvider)
+        {
+            this.serviceProvider = serviceProvider;
+        }
 
         public IExecutable InterpretCommand(string[] data, string commandName)
         {
@@ -27,7 +26,19 @@
                 .GetTypes()
                 .FirstOrDefault(t => t.Name.ToLower() == instanceName);
 
-            return (IExecutable)Activator.CreateInstance(type, new object[] { data/*, this.repository, this.unitFactory */});
+            var instance = (IExecutable)Activator.CreateInstance(type, new object[] { data });
+
+            var fields = instance.GetType()
+                .GetFields(BindingFlags.NonPublic | BindingFlags.Instance)
+                .Where(f => f.CustomAttributes.Any(ca => ca.AttributeType == typeof(InjectAttribute)));
+
+            foreach (var field in fields)
+            {
+                var value = serviceProvider.GetService(field.FieldType);
+                field.SetValue(instance, value);
+            }
+
+            return instance;
         }
     }
 }
