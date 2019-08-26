@@ -9,10 +9,10 @@
         private readonly IRepository repository;
         private readonly IUnitFactory unitFactory;
 
-        public Dependencies()
+        public Dependencies(UnitRepository repository, UnitFactory unitFactory)
         {
-            this.repository = new UnitRepository();
-            this.unitFactory = new UnitFactory();
+            this.repository = repository;
+            this.unitFactory = unitFactory;
         }
     }
 }
