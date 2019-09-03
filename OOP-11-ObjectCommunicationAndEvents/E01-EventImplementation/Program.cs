@@ -4,7 +4,7 @@
 
     public class Program
     {
-        public static void Main(string[] args)
+        public static void Main()
         {
             var disp = new Dispatcher();
             var handler = new Handler();
