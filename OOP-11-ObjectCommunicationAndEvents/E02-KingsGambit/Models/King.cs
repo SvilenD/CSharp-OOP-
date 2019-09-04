@@ -1,6 +1,5 @@
 ﻿namespace E02_KingsGambit.Models
 {
-    using E02_KingsGambit.Models.Contracts;
     using System;
 
     public class King : Figure
@@ -14,9 +13,9 @@
 
         public event EventHandler KingAttacked;
 
-        public void GetAttacked(IFigure figure)
+        public void GetAttacked()
         {
-            this.KingAttacked?.Invoke(figure, new EventArgs());
+            this.KingAttacked?.Invoke(this, EventArgs.Empty);
         }
     }
 }

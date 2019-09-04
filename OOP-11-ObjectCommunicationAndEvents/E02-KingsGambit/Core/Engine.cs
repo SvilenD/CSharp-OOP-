@@ -32,7 +32,7 @@
                 }
                 else if (command == "Attack King")
                 {
-                    this.king.GetAttacked(this.king);
+                    this.king.GetAttacked();
                 }
                 else
                 {
