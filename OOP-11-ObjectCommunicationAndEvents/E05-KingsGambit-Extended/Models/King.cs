@@ -43,7 +43,7 @@
             Console.WriteLine(this.Response);
         }
 
-        public void DeadSoldier(object sender, EventArgs args)
+        private void DeadSoldier(object sender, EventArgs args)
         {
             var soldier = (Soldier)sender;
             this.KingAttacked -= soldier.OnAttack;

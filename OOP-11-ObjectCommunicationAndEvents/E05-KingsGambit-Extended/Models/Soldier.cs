@@ -29,7 +29,7 @@
             this.Lives--;
             if (this.Lives == 0)
             {
-                this.SoldierDead.Invoke(this, EventArgs.Empty);
+                this.SoldierDead?.Invoke(this, EventArgs.Empty);
             }
         }
     }
