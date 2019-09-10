@@ -1,7 +1,6 @@
 ﻿namespace SimpleSnake.GameObjects
 {
     using SimpleSnake.Enums;
-    using SimpleSnake.GameObjects.Foods;
     using System.Collections.Generic;
     using System.Linq;
 

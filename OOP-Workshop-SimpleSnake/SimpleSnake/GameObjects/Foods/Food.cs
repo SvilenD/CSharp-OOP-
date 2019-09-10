@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace SimpleSnake.GameObjects.Foods
+﻿namespace SimpleSnake.GameObjects.Foods
 {
     public abstract class Food : IPoint
     {
