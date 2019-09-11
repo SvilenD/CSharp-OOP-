@@ -18,10 +18,10 @@
             switch (foodType)
             {
                 case 0:
-                    food = new AsteriskFood(x, y);
+                    food = new VenomFood(x, y);
                     break;
                 case 1:
-                    food = new DollarFood(x, y);
+                    food = new AsteriskFood(x, y);
                     break;
                 case 2:
                     food = new HashFood(x, y);

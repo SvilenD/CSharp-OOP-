@@ -1,8 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace SimpleSnake.GameObjects
+﻿namespace SimpleSnake.GameObjects
 {
+    using System;
+    using System.Collections.Generic;
+
     public class Frame
     {
         private readonly List<FramePoint> points;
@@ -18,7 +18,7 @@ namespace SimpleSnake.GameObjects
         private void GenerateWalls()
         {
             //left wall
-            for (int y = 0; y < Console.WindowHeight; y++)
+            for (int y = 1; y < Console.WindowHeight - 1; y++)
             {
                 this.points.Add(new FramePoint(0, y));
                 this.points.Add(new FramePoint(1, y));
@@ -32,7 +32,7 @@ namespace SimpleSnake.GameObjects
             }
 
             //right wall
-            for (int y = 0; y < Console.WindowHeight; y++)
+            for (int y = 1; y < Console.WindowHeight - 1; y++)
             {
                 this.points.Add(new FramePoint(Console.WindowWidth - 2, y));
                 this.points.Add(new FramePoint(Console.WindowWidth - 1, y));
@@ -42,7 +42,6 @@ namespace SimpleSnake.GameObjects
             for (int x = 0; x < Console.WindowWidth; x++)
             {
                 this.points.Add(new FramePoint(x, Console.WindowHeight - 2));
-                this.points.Add(new FramePoint(x, Console.WindowHeight - 1));
             }
         }
     }

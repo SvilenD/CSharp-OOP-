@@ -2,7 +2,7 @@
 {
     public class AsteriskFood : Food
     {
-        private const int FoodPoints = -1;
+        private const int FoodPoints = 2;
         private const char FoodSymbol = '*';
 
         public AsteriskFood(int x, int y) 

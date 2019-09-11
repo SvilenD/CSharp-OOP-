@@ -10,9 +10,8 @@
         {
             ConsoleWindow.CustomizeConsole();
             var frame = new Frame();
-            var drawManager = new DrawManager();
             var snake = new Snake();
-            var engine = new Engine(snake, drawManager, frame);
+            var engine = new Engine(snake, frame);
             engine.Run();
         }
     }

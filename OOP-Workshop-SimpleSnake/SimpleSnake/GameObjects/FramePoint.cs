@@ -2,7 +2,7 @@
 {
     public class FramePoint : IPoint
     {
-        private const char wallSymbol = '\u25A0';
+        private const char wallSymbol = '\u2588';
 
         public FramePoint(int x, int y)
         {

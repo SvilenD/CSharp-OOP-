@@ -16,7 +16,8 @@
         public static void CustomizeConsole()
         {
             Console.OutputEncoding = Encoding.Unicode;
-            Console.SetWindowSize(Console.LargestWindowWidth, Console.LargestWindowHeight);
+            Console.SetWindowSize(Console.WindowWidth, Console.WindowHeight);
+            Console.SetBufferSize(Console.WindowWidth, Console.WindowHeight);
             ShowWindow(ThisConsole, MAXIMIZE);
             Console.BackgroundColor = ConsoleColor.White;
             Console.ForegroundColor = ConsoleColor.Black;

@@ -1,38 +1,37 @@
 ﻿namespace SimpleSnake
 {
+    using SimpleSnake.Core;
     using System;
 
     public static class AppExit
     {
-        private const string ConfirmationMsg = " Are you sure you want to exit? Press Enter to confirm. ";
-        private const string GameOverMsg = " Game Over! Try Again! ";
+        private const string ConfirmationMsg = " Are you sure you want to exit? Press ENTER to confirm. ";
+        private const string GameOverMsg = " Game Over! Try Again? - Press SPACE to Restart. ";
 
         public static void Confirm()
         {
-            WriteDetails(ConfirmationMsg);
+            DrawManager.WriteMsg(ConfirmationMsg);
+
             var keyPressed = Console.ReadKey();
 
             if (keyPressed.Key == ConsoleKey.Enter)
             {
                 Environment.Exit(0);
             }
-
-            Console.ForegroundColor = ConsoleColor.Black;
         }
 
         public static void GameOver()
         {
-            WriteDetails(GameOverMsg);
+            DrawManager.WriteMsg(GameOverMsg);
+
+            var keyPressed = Console.ReadKey();
+
+            if (keyPressed.Key == ConsoleKey.Spacebar)
+            {
+                StartUp.Main();
+            }
 
             Environment.Exit(0);
-        }
-
-        private static void WriteDetails(string msg)
-        {
-            Console.Beep();
-            Console.ForegroundColor = ConsoleColor.Red;
-            Console.SetCursorPosition(70, 1);
-            Console.WriteLine(msg);
         }
     }
 }

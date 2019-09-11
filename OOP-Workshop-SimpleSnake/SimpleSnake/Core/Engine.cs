@@ -12,7 +12,6 @@
     {
         private const sbyte InitialCounter = 100;
         private readonly Snake snake;
-        private readonly DrawManager drawManager;
         private readonly List<Food> foods;
         private readonly Frame frame;
         private sbyte level;
@@ -20,10 +19,9 @@
         private sbyte counter;
         private int score;
 
-        public Engine(Snake snake, DrawManager drawManager, Frame frame)
+        public Engine(Snake snake, Frame frame)
         {
             this.snake = snake;
-            this.drawManager = drawManager;
             this.foods = new List<Food>();
             this.level = 1;
             this.sleepTime = sbyte.MaxValue;
@@ -34,16 +32,16 @@
 
         public void Run()
         {
-            this.drawManager.DrawSet(this.frame.Points);
+            DrawManager.DrawFrame(this.frame.Points);
             InitializeFood();
 
             while (true)
             {
-                this.drawManager.DrawSet(this.snake.Body);
+                DrawManager.DrawSnake(this.snake.Body);
                 var pointToClear = this.snake.Body.First();
-                this.drawManager.ClearPoint(pointToClear);
+                DrawManager.ClearPoint(pointToClear);
 
-                this.drawManager.WriteScore(this.score, this.level);
+                DrawManager.WriteScore(this.score, this.level);
                 if (this.counter == 0)
                 {
                     this.counter = InitialCounter;
@@ -58,7 +56,7 @@
                     if (keyInput.Key.Equals(ConsoleKey.Escape))
                     {
                         AppExit.Confirm();
-                        this.drawManager.DrawSet(this.frame.Points);
+                        DrawManager.DrawFrame(this.frame.Points);
                     }
                     GetDirection(keyInput);
                 }
@@ -75,7 +73,7 @@
         private void CheckForCollision()
         {
             var head = this.snake.GetHead();
-            if (this.frame.Points.Any(x=>x.CoordinateX == head.CoordinateX && x.CoordinateY ==head.CoordinateY))
+            if (this.frame.Points.Any(x=>x.CoordinateX == head.CoordinateX && x.CoordinateY == head.CoordinateY))
             {
                 AppExit.GameOver();
             }
@@ -99,7 +97,7 @@
             {
                 var food = FoodFactory.GetFood();
                 this.foods.Add(food);
-                this.drawManager.DrawFood(food);
+                DrawManager.DrawFood(food);
             }
         }
 
